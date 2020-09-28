@@ -6,6 +6,8 @@ let date1, date2, minutes;
 let counter = 0;
 let marginLeft = 0;
 let mistakes = 0;
+//GAMEOVER TRIGGER AND LOCK IN WPM WHEN GAMEOVER IS MET
+let gameOver = false;
 function charCor(a, b) {
   if (a == b) {
     return true;
@@ -14,8 +16,7 @@ function charCor(a, b) {
   }
 }
 
-//GAMEOVER TRIGGER AND LOCK IN WPM WHEN GAMEOVER IS MET
-let gameOver = false;
+
 $(document).ready(function () {
   $('#sentence').text(sentences[i]);
   //INITIALIZE 'target-letter'

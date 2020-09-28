@@ -40,13 +40,14 @@ $(document).ready(function () {
 
   //WHEN KEYS ARE PRESSED THEY SHOULD BE HIGHLIGHTED IN THE BROWSER
   $(document).on({
-      //THIS IS THE 'keydown' LISTENER
+    //THIS IS THE 'keydown' LISTENER
     keydown: function (event) {
       //IF GAMEOVER
       if (!gameOver && i >= sentences.length) {
         //SET GAME OVER TO TRUE
         gameOver = true;
-        //CREATE DATE 2
+        //CREATE DATE2
+        //USING NEW DATE TO STORE TIME IN MILLISECONDS
         date2 = new Date();
         //MINUTES VARIABLE  (60000 CONVERTS TO MINUTES)
         minutes = Math.abs(date2.getTime() - date1.getTime()) / 60000;
@@ -60,13 +61,13 @@ $(document).ready(function () {
         $('#target-letter').html('<button type="button" class="btn btn-primary" id="btn0">Play Again?</button>');
         //HIDE BUTTON
         $('#btn0').hide();
-        //FACE IN BUTTON
+        //FADE IN BUTTON
         $('#btn0').fadeIn(1000);
         //RESET IF YES
       }
       //KEEP SHIFT FROM TRIGGERING 'S' KEY
       if (!gameOver && event.key != "Shift") {
-        //CREATE 'date1' WITH FIRST KEYPRESS
+        //CREATE 'date1' WITH FIRST KEYPRESS 
         if (!gameOver && i == 0 && counter == 0) {
           date1 = new Date();
         }

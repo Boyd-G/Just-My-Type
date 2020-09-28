@@ -39,6 +39,7 @@ $(document).ready(function () {
     }
   });
 
+
   //WHEN KEYS ARE PRESSED THEY SHOULD BE HIGHLIGHTED IN THE BROWSER
   $(document).on({
     //THIS IS THE 'keydown' LISTENER
@@ -66,12 +67,16 @@ $(document).ready(function () {
         $('#btn0').fadeIn(1000);
         //RESET IF YES
       }
+
+
       //KEEP SHIFT FROM TRIGGERING 'S' KEY
       if (!gameOver && event.key != "Shift") {
         //CREATE 'date1' WITH FIRST KEYPRESS 
         if (!gameOver && i == 0 && counter == 0) {
           date1 = new Date();
         }
+
+
         $('#' + event.key.charCodeAt(0)).css('background-color', 'yellow');
         //IF IN CURRENT SENCTECE EXECUTE THE FOLLOWING:
         if (!gameOver && counter + 1 < sentences[i].length) {  //+1 REMOVES THE NEED TO PRESS A KEY TO MOVE TO NEXT SENTENCE
@@ -95,7 +100,9 @@ $(document).ready(function () {
           counter++;
           //PUT THE EXPECTED CHARACTER IN A BOX
           $('#target-letter').text(sentences[i][counter]);
-        } else {  //RESET CODE WHEN SENTENCE IS DONE
+        }
+        
+        else {  //RESET CODE WHEN SENTENCE IS DONE
           counter = 0; //COUNTER RESET
           i++; //NEXT SENTENCE FROM ARRAY
           marginLeft = 0; //RESET, MARGIN LEFT
@@ -107,6 +114,8 @@ $(document).ready(function () {
         } //end of if counter < sentences[n] block
       }
     },
+    
+    
     keyup: function (event) {
       //PROTECT FROM SHIFT TRIGGERING S KEY
       if (!gameOver && event.key != "Shift") {
@@ -114,6 +123,8 @@ $(document).ready(function () {
       }
     }
   });
+ 
+ 
   //EVENT LISTENER ON PLAY AGAIN BUTTON
   $(document).on('click', '#btn0', function () {
     location = location;
